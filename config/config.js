@@ -1,3 +1,4 @@
+//COMANDO STARTAR APP "npm start"
 const env = process.env.NODE_ENV || 'dev';
 
 const config = () => {
