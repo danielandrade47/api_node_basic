@@ -1,3 +1,4 @@
+const Double = require('@mongoosejs/double/lib');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 //const bcrypt = require('bcrypt');
@@ -5,6 +6,7 @@ const Schema = mongoose.Schema;
 const ProductSchema = new Schema({
     nome: { type: String, required: true, unique: true, lowercase: true },
     descricao: { type: String, required: true, select: true },
+    preco: { type: Double, required: true, select: true},
     created: { type: Date, default: Date.now }
 });
 
