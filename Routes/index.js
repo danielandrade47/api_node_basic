@@ -4,7 +4,7 @@ const auth = require('../middlewares/auth');
 
 router.get('/', auth, (req, res) => {
     console.log(res.locals.auth_data);
-    return res.send({message: 'OK com o GET da Raiz (AUTH TOKEN - SECRET)'});
+    return res.send({message: 'Autenticação realizada com sucesso (GET DA RAIZ)'});
 });
 
 router.post('/', (req, res) => {

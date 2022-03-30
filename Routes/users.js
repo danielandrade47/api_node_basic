@@ -29,11 +29,23 @@ router.post('/create', async (req, res) => {
         const user = await Users.create(req.body);
         user.password = undefined;
 
-        return res.status(201).send({user, token: createUserToken(user.id)});
+        return res.status(201).send({user, token: createUserToken(user.id), message: 'Usuário cadastrado com sucesso.'});
     }
     catch (err) {
         return res.status(500).send({ error: 'Erro ao buscar usuário' });
     }
+});
+
+router.delete('/delete', async (req, res) => {
+    const { email} = req.body;
+    try{
+        if (await Users.findOneAndDelete({ email })) return res.status(200).send({ message: 'Usuário deletado com sucesso.' });
+        const user = await Users.delete(req.body);
+    }
+    catch (err) {
+        return res.status(404).send({ error: 'Usuário já deletado.' });
+    }
+    
 });
 
 router.post('/auth', async (req, res) => {
