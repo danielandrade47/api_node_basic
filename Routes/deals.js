@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Product = require('../model/deal');
+const Deal = require('../model/deal');
 const config = require('../config/config');
 
 router.post('/create', async (req, res) => {
