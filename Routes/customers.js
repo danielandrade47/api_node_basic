@@ -65,16 +65,16 @@ router.patch('/:id', async (req, res) => {
     }
   });
 
-router.delete('/:id', async (req, res) => {
-    const { id } = req.body;
-    try{
-        if (await Customer.findOneAndDelete({ id })) return res.status(200).send({ message: 'Cliente deletado com sucesso.' });
-        const customer = await Customers.delete(req.body);
+  router.delete('/:id', async (req, res) => {
+    const id = req.params.id
+    try {
+        await Customer.findOneAndDelete({ _id: id })
+        return res.status(200).send({ message: 'Cliente deletado com sucesso.' });
     }
     catch (err) {
         return res.status(404).send({ error: 'Cliente já deletado.' });
     }
-    
+
 });
 
 module.exports = router;
