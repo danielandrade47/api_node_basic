@@ -27,12 +27,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const indexRoute = require('./Routes/index');
-const usersRoute = require('./Routes/users');
+const customersRoute = require('./Routes/customers');
 const productsRoute = require('./Routes/products');
 
 app.use('/', indexRoute);
-app.use('/users', usersRoute);
-app.use('/products', productsRoute);
+app.use('/customer', customersRoute);
+app.use('/product', productsRoute);
 
 app.get('/', (req, res) => {
     return res.send({message: 'OK com o GET da Raiz'});
