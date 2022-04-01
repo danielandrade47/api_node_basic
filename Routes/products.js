@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
     }
   });
 
-  router.post('/insert', async (req, res) => {
+  router.post('/create', async (req, res) => {
     const { name, brand, description, price } = req.body;
     if (!name || !brand || !description || !price) return res.status(400).send({ error: 'Dados insuficientes para cadastrar produto' });
 
