@@ -22,7 +22,7 @@ mongoose.connection.on('connected', () => {
     console.log('Aplicação conectada ao banco de dados');
 });
 
-//BODY PARSER.
+//BODY PARSER...
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
