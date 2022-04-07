@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
     }
   });
 
-  router.post('/insert', async (req, res) => {
+  router.post('/create', async (req, res) => {
     const { name, brand, description, price } = req.body;
     if (!name || !brand || !description || !price) return res.status(400).send({ error: 'Dados insuficientes para cadastrar produto' });
 
@@ -66,15 +66,15 @@ router.patch('/:id', async (req, res) => {
   });
 
   router.delete('/:id', async (req, res) => {
-    const { id } = req.body;
-    try{
-        if (await Product.findOneAndDelete({ id })) return res.status(200).send({ message: 'Produto deletado com sucesso.' });
-        const product = await Products.delete(req.body);
+    const id = req.params.id
+    try {
+        await Product.findOneAndDelete({ _id: id })
+        return res.status(200).send({ message: 'Produto deletado com sucesso.' });
     }
     catch (err) {
         return res.status(404).send({ error: 'Produto já deletado.' });
     }
-    
+
 });
 
 module.exports = router;
