@@ -55,4 +55,23 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+/*
+router.patch('/:id', async (req, res) => {
+  const id = req.params.id
+  const deal = await Deal.findOne({ _id: id })
+  const { clientId, products } = req.body
+  const deal = {}
+  try {
+    const updatedDeal = await Deal.updateOne({ _id: id }, deal)
+    if (updatedDeal.matchedCount === 0) {
+      res.status(404).json({ message: 'Orçamento não encontrado!' })
+      return
+    }
+    return res.status(200).json({deal, message: 'Orçamento atualizado com sucesso.'});
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao atualizar orçamento" })
+  }
+});
+*/
+
 module.exports = router;
