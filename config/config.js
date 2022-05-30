@@ -1,6 +1,5 @@
 //COMANDO STARTAR APP "npm start"
 const env = process.env.NODE_ENV || 'dev';
-const port = process.env.PORT || 3000;
 
 const config = () => {
     switch (env) {
@@ -28,6 +27,5 @@ const config = () => {
 }
 
 console.log(`Iniciando a API em ambiente ${env.toUpperCase()}`);
-
 
 module.exports = config();
