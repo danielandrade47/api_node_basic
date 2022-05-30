@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const config = require('./config/config');
 
+const port = process.env.PORT || 3000;
+
 const url = config.bd_string;
 const options = { reconnectTries: Number.MAX_VALUE, reconnectInterval: 500, poolSize: 5, useNewUrlParser: true };
 
@@ -44,6 +46,8 @@ app.post('/', (req, res) => {
     return res.send({message: 'OK com o POST da Raiz'});
 });
 
-app.listen(3000);
+app.listen(port, () => {
+    console.info("Aplicação rodando em: ")
+});
 
 module.exports = app;
