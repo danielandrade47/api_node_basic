@@ -47,7 +47,7 @@ app.post('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.info("Aplicação rodando em: Heroku - TESTE")
+    console.info(`Aplicação rodando em: ${port}`);
 });
 
 module.exports = app;
