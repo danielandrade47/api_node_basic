@@ -6,7 +6,7 @@ const CustomerSchema = new Schema({
     email: { type: String, required: true, unique: true, lowercase: true },
     phone: { type: String, required: true, select: true },
     address: {
-      country: String,
+      state: String,
       city: String,
       street: String,
       number: String,
